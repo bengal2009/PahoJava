@@ -33,9 +33,12 @@ public class AndroidPushMsgToAll_notify {
 
 		try {
 			// 4. specify request arguments
+			String msg = String
+					.format("{\"title\":\"%s\",\"description\":\"%s\"}",
+							"BaiduPush", jsonencode("测试111!"));
 			PushMsgToAllRequest request = new PushMsgToAllRequest()
-					.addMsgExpires(new Integer(3600)).addMessageType(0)
-					.addMessage("Hello Baidu push-1") //添加透传消息
+					.addMsgExpires(new Integer(3600)).addMessageType(1)
+					.addMessage(msg) //添加透传消息
 					.addSendTime(System.currentTimeMillis() / 1000 + 120) // 设置定时推送时间，必需超过当前时间一分钟，单位秒.实例2分钟后推送
 					.addDeviceType(3);
 			// 5. http request
@@ -59,5 +62,11 @@ public class AndroidPushMsgToAll_notify {
 						e.getRequestId(), e.getErrorCode(), e.getErrorMsg()));
 			}
 		}
+	}
+private static String jsonencode(String str) {
+		String rc = str.replace("\\", "\\\\");
+		rc = rc.replace("\"", "\\\"");
+		rc = rc.replace("\'", "\\\'");
+		return rc;
 	}
 }

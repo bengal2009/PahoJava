@@ -1,7 +1,5 @@
 package com.baidu.yun.push.sample;
 
-import java.util.List;
-
 import com.baidu.yun.core.log.YunLogEvent;
 import com.baidu.yun.core.log.YunLogHandler;
 import com.baidu.yun.push.auth.PushKeyPair;
@@ -12,6 +10,8 @@ import com.baidu.yun.push.exception.PushServerException;
 import com.baidu.yun.push.model.KeyValueForTopic;
 import com.baidu.yun.push.model.QueryStatisticTopicRequest;
 import com.baidu.yun.push.model.QueryStatisticTopicResponse;
+
+import java.util.List;
 
 public class QueryStatisticTopic {
 	public static void main(String[] args) throws PushClientException,
